@@ -2,6 +2,7 @@
   "name": "bamazon",
   "version": "1.0.0",
   "dependencies": {
+    "inquirer": "^6.2.2",
     "mysql": "latest"
   }
 }
