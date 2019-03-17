@@ -77,10 +77,11 @@ function updateInventory(id, userReqQty, newQuantity, price, name) {
         ],
         function (error) {
             if (error) throw err;
+            var saleAmount = parseFloat(price*userReqQty).toFixed(2);
             // console.log("Item " + name + " has been successfully updated!");
             console.log(`
                     Thank your for your purchase!
-                    Your total for ${name} is ${price * userReqQty}
+                    Your total for ${name} is ${saleAmount}
             `);
             newStockQty(id);
         });
