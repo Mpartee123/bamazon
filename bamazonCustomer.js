@@ -19,7 +19,7 @@ function queryAllProducts() {
     connection.query("SELECT * FROM products", function (err, res) {
         for (var i = 0; i < res.length; i++) {
             productId.push(res[i].item_id);
-            console.log(`Id: ${res[i].item_id}, Item Name: ${res[i].product_name}, Price: ${res[i].price}`);
+            console.log(`Id: ${res[i].item_id}, Item Name: ${res[i].product_name}, Price: ${res[i].price}, Qty: ${res[i].stock_quantity}`);
         }
         start();
     });
@@ -77,7 +77,7 @@ function updateInventory(id, userReqQty, newQuantity, price, name) {
         ],
         function (error) {
             if (error) throw err;
-            console.log("Item " + name + " has been successfully updated!");
+            // console.log("Item " + name + " has been successfully updated!");
             console.log(`
                     Thank your for your purchase!
                     Your total for ${name} is ${price * userReqQty}
@@ -104,7 +104,7 @@ function restart() {
         .prompt([
             {
                 type:'list',
-                name:'exit',
+                name:'Would you like to keep shopping?',
                 choices:['Yes','NO']
             }])
         .then(answers => {
