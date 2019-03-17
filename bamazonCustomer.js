@@ -104,7 +104,8 @@ function restart() {
         .prompt([
             {
                 type:'list',
-                name:'Would you like to keep shopping?',
+                name:'exit',
+                message:'Would you like to keep shopping?',
                 choices:['Yes','NO']
             }])
         .then(answers => {
